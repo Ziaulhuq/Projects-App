@@ -1,9 +1,16 @@
 .button {
   margin-top: 2rem;
-  background-color: rgb(28, 23, 23);
+  background-color: rgb(29, 26, 26);
   padding: 0.5rem;
   border-radius: 3px;
   width: 10rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;
+  color: #d8d4d4;
+  border: none;
+  outline: none;
+}
+.button:hover {
+  background-color: rgb(16, 14, 14);
+  cursor: pointer;
 }

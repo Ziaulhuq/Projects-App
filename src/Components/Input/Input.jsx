@@ -1,10 +1,17 @@
 import React from "react";
+import styles from "./Input.module.css";
 
-function Input({ textarea, label }) {
+function Input({ textarea, label, ...props }) {
   return (
     <>
-      <p>{label}</p>
-      <div>{textarea ? <textarea /> : <input />}</div>
+      <label className={styles.label}>{label}</label>
+      <div>
+        {textarea ? (
+          <textarea className={styles.textarea} {...props} />
+        ) : (
+          <input className={styles.input} {...props} />
+        )}
+      </div>
     </>
   );
 }
