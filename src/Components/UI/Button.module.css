@@ -1,16 +1,18 @@
 .button {
   margin-top: 2rem;
-  background-color: rgb(29, 26, 26);
+  background-color: rgb(50, 44, 44);
   padding: 0.5rem;
-  border-radius: 3px;
+  border-radius: 4px;
   width: 10rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;
-  color: #d8d4d4;
+  color: #858080;
   border: none;
   outline: none;
+  font-weight: 600;
 }
 .button:hover {
-  background-color: rgb(16, 14, 14);
+  background-color: rgb(30, 27, 27);
   cursor: pointer;
+  color: rgb(210, 212, 213);
 }

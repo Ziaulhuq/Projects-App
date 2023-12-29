@@ -1,3 +1,7 @@
 .mainpage {
   padding-top: 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 5rem;
 }
