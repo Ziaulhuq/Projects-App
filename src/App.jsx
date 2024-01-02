@@ -10,7 +10,7 @@ function App() {
     projects: [],
   });
 
-  function HandleStartProjects() {
+  function handleStartProjects() {
     setProjectState((prevState) => {
       return {
         ...prevState,
@@ -19,16 +19,31 @@ function App() {
     });
   }
 
+  function handleAddProjects(projectsData) {
+    setProjectState((prevState) => {
+      const newData = {
+        ...projectsData,
+        id: Math.random(),
+      };
+      return {
+        ...prevState,
+        projectSelectedId: undefined,
+        projects: [...prevState.projects, newData],
+      };
+    });
+  }
+  console.log(projectState);
+
   let content;
   if (projectState.projectSelectedId === null) {
-    content = <MainPage />;
+    content = <MainPage onAddData={handleAddProjects} />;
   } else if (projectState.projectSelectedId === undefined) {
-    content = <NoPageSelected onAddProjects={HandleStartProjects} />;
+    content = <NoPageSelected onAddProjects={handleStartProjects} />;
   }
 
   return (
     <div className={styles.container}>
-      <SideBar onAddProjects={HandleStartProjects} />
+      <SideBar onAddProjects={handleStartProjects} />
       {content}
     </div>
   );
