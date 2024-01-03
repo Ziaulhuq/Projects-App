@@ -2,7 +2,7 @@ import { useRef } from "react";
 import Input from "../Input/Input";
 import styles from "./InputPage.module.css";
 
-const InputPage = ({ onAddData }) => {
+const InputPage = ({ onAddData, onCancel }) => {
   const name = useRef();
   const description = useRef();
   const dueDate = useRef();
@@ -24,7 +24,9 @@ const InputPage = ({ onAddData }) => {
     <>
       <div className={styles.input_container}>
         <div className={styles.buttons}>
-          <button className={styles.cancel}>Cancel</button>
+          <button className={styles.cancel} onClick={onCancel}>
+            Cancel
+          </button>
           <button onClick={handleSave} className={styles.save}>
             Save
           </button>

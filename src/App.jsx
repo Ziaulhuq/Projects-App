@@ -32,18 +32,31 @@ function App() {
       };
     });
   }
-  console.log(projectState);
+
+  function handleCancel() {
+    setProjectState((prevState) => {
+      return {
+        ...prevState,
+        projectSelectedId: undefined,
+      };
+    });
+  }
 
   let content;
   if (projectState.projectSelectedId === null) {
-    content = <MainPage onAddData={handleAddProjects} />;
+    content = (
+      <MainPage onAddData={handleAddProjects} onCancel={handleCancel} />
+    );
   } else if (projectState.projectSelectedId === undefined) {
     content = <NoPageSelected onAddProjects={handleStartProjects} />;
   }
 
   return (
     <div className={styles.container}>
-      <SideBar onAddProjects={handleStartProjects} />
+      <SideBar
+        onAddProjects={handleStartProjects}
+        projects={projectState.projects}
+      />
       {content}
     </div>
   );

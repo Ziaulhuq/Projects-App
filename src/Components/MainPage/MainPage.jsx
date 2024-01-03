@@ -2,10 +2,10 @@ import React from "react";
 import InputPage from "../InputPage/InputPage.jsx";
 import styles from "./MainPage.module.css";
 
-const MainPage = ({ onAddData }) => {
+const MainPage = ({ onAddData, onCancel }) => {
   return (
     <div className={styles.mainpage}>
-      <InputPage onAddData={onAddData} />
+      <InputPage onAddData={onAddData} onCancel={onCancel} />
     </div>
   );
 };
