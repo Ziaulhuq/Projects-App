@@ -1,8 +1,10 @@
 import { useRef } from "react";
 import Input from "../Input/Input";
 import styles from "./InputPage.module.css";
+import Modal from "../Modal/Modal.jsx";
 
 const InputPage = ({ onAddData, onCancel }) => {
+  const dialog = useRef();
   const name = useRef();
   const description = useRef();
   const dueDate = useRef();
@@ -13,6 +15,14 @@ const InputPage = ({ onAddData, onCancel }) => {
     const enteredDueDate = dueDate.current.value;
 
     //validation....
+    if (
+      enteredName.trim() === "" ||
+      enteredDescription.trim() === "" ||
+      enteredDueDate.trim() === ""
+    ) {
+      dialog.current.open();
+      return;
+    }
     onAddData({
       name: enteredName,
       description: enteredDescription,
@@ -22,6 +32,12 @@ const InputPage = ({ onAddData, onCancel }) => {
 
   return (
     <>
+      <Modal ref={dialog}>
+        <h2 className="text-2xl text-stone-900 font-semibold mb-2">
+          Invalid input
+        </h2>
+        <p className="mb-3">oops... forget to enter a input.</p>
+      </Modal>
       <div className={styles.input_container}>
         <div className={styles.buttons}>
           <button className={styles.cancel} onClick={onCancel}>
