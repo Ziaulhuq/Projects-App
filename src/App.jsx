@@ -3,6 +3,7 @@ import { useState } from "react";
 import MainPage from "./Components/MainPage/MainPage.jsx";
 import NoPageSelected from "./Components/NoPageSelected/NoPageSelected";
 import SideBar from "./Components/SideBar/SideBar.jsx";
+import SelectedProjects from "./Components/SelectedProjects/SelectedProjects";
 
 function App() {
   const [projectState, setProjectState] = useState({
@@ -42,7 +43,16 @@ function App() {
     });
   }
 
-  let content;
+  function handleSelectProjects(id) {
+    setProjectState((prevState) => {
+      return {
+        ...prevState,
+        projectSelectedId: id,
+      };
+    });
+  }
+
+  let content = <SelectedProjects />;
   if (projectState.projectSelectedId === null) {
     content = (
       <MainPage onAddData={handleAddProjects} onCancel={handleCancel} />
@@ -56,6 +66,7 @@ function App() {
       <SideBar
         onAddProjects={handleStartProjects}
         projects={projectState.projects}
+        onSelectProjects={handleSelectProjects}
       />
       {content}
     </div>

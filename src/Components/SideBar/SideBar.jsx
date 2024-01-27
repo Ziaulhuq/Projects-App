@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./SideBar.module.css";
 import Button from "../UI/Button.jsx";
 
-const SideBar = ({ onAddProjects, projects }) => {
+const SideBar = ({ onAddProjects, projects, onSelectProjects }) => {
   return (
     <div className={styles.sidebar}>
       <h4>MY PROJECTS</h4>
@@ -11,7 +11,7 @@ const SideBar = ({ onAddProjects, projects }) => {
         <ul>
           {projects.map((project) => (
             <li key={project.id}>
-              <Button>{project.name}</Button>
+              <Button onClick={onSelectProjects}>{project.name}</Button>
             </li>
           ))}
         </ul>
