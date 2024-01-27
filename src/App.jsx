@@ -9,6 +9,7 @@ function App() {
   const [projectState, setProjectState] = useState({
     projectSelectedId: undefined,
     projects: [],
+    tasks: [],
   });
 
   function handleStartProjects() {
@@ -22,9 +23,10 @@ function App() {
 
   function handleAddProjects(projectsData) {
     setProjectState((prevState) => {
+      let projectId = Math.random();
       const newData = {
         ...projectsData,
-        id: Math.random(),
+        id: projectId,
       };
       return {
         ...prevState,
@@ -52,7 +54,11 @@ function App() {
     });
   }
 
-  let content = <SelectedProjects />;
+  const selectedProjects = projectState.projects.find(
+    (project) => project.id === projectState.projectSelectedId
+  );
+
+  let content = <SelectedProjects project={selectedProjects} />;
   if (projectState.projectSelectedId === null) {
     content = (
       <MainPage onAddData={handleAddProjects} onCancel={handleCancel} />

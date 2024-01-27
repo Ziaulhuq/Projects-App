@@ -11,7 +11,9 @@ const SideBar = ({ onAddProjects, projects, onSelectProjects }) => {
         <ul>
           {projects.map((project) => (
             <li key={project.id}>
-              <Button onClick={onSelectProjects}>{project.name}</Button>
+              <Button onClick={() => onSelectProjects(project.id)}>
+                {project.name}
+              </Button>
             </li>
           ))}
         </ul>
