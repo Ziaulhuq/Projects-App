@@ -1,12 +1,27 @@
 import React from "react";
 import InputTasks from "./InputTasks";
 
-const Tasks = () => {
+const Tasks = ({ onAddTask, tasks, onDeleteTask }) => {
   return (
     <div>
       <h3 className="font-bold mb-4">Tasks</h3>
-      <p className="mb-4">There are no more taskes yet..</p>
-      <InputTasks />
+      <InputTasks onAddTask={onAddTask} />
+      {tasks.length === 0 && (
+        <p className="mb-4">There are no more taskes yet..</p>
+      )}
+      {tasks.length > 0 && (
+        <ul>
+          {tasks.map((task) => (
+            <li
+              className="bg-stone-200 w-[27rem] p-2 my-1 flex justify-between"
+              key={task.id}
+            >
+              <span>{task.taskdata}</span>
+              <button onClick={() => onDeleteTask(task.id)}>clear</button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
