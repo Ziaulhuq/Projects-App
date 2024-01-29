@@ -17,13 +17,14 @@
   cursor: pointer;
 }
 .save {
-  background-color: rgb(48, 42, 42);
+  background-color: rgb(90, 83, 83);
   color: #fff;
   border: none;
   padding: 0.3rem 0.7rem;
-  border-radius: 3px;
+  border-radius: 10px;
   cursor: pointer;
+  width: 6rem;
 }
 .save:hover {
-  background-color: rgb(75, 71, 71);
+  background-color: rgb(28, 26, 26);
 }
