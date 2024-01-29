@@ -13,11 +13,16 @@ const Tasks = ({ onAddTask, tasks, onDeleteTask }) => {
         <ul>
           {tasks.map((task) => (
             <li
-              className="bg-stone-200 w-[27rem] p-2 my-1 flex justify-between"
+              className="bg-stone-200 w-[34rem] p-2 my-1 flex justify-between"
               key={task.id}
             >
               <span>{task.taskdata}</span>
-              <button onClick={() => onDeleteTask(task.id)}>clear</button>
+              <button
+                className="text-stone-600 hover:text-stone-950"
+                onClick={() => onDeleteTask(task.id)}
+              >
+                clear
+              </button>
             </li>
           ))}
         </ul>
